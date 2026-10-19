@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class Solution {
+
+    // Recursive method to print numbers from N down to 1
+    public static void printNumbers(int n) {
+        // Base case: stop when N reaches 0
+        if (n == 0) {
+            return;
+        }
+
+        // Print the current number first
+        System.out.print(n + " ");
+
+        // Recursive call for (N - 1)
+        printNumbers(n - 1);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        if (sc.hasNextInt()) {
+            int n = sc.nextInt();
+            printNumbers(n);
+        }
+        sc.close();
+    }
+}
