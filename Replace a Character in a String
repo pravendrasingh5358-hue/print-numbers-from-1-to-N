@@ -1,0 +1,27 @@
+// Replace a Character in a String
+import java.util.Scanner;
+
+public class Solution {
+
+    public static String replaceChar(String str, char c1, char c2, int index) {
+        if (index == str.length()) {
+            return "";
+        }
+        char current = str.charAt(index);
+        char replaced = (current == c1) ? c2 : current;
+        return replaced + replaceChar(str, c1, c2, index + 1);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        if (sc.hasNextLine()) {
+            String s = sc.nextLine();
+            if (sc.hasNext()) {
+                char c1 = sc.next().charAt(0);
+                char c2 = sc.next().charAt(0);
+                System.out.println(replaceChar(s, c1, c2, 0));
+            }
+        }
+        sc.close();
+    }
+}
