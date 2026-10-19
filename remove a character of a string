@@ -1,0 +1,28 @@
+// remove a character of a string
+import java.util.Scanner;
+public class Solution {
+    public static String removeChar(String str, char c, int index) {
+        if (index == str.length()) {
+            return "";
+  }
+        char current = str.charAt(index);
+        String remaining = removeChar(str, c, index + 1);
+        if (current == c) {
+            return remaining;
+        } else {
+            return current + remaining;
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        if (sc.hasNextLine()) {
+            String s = sc.nextLine();
+            if (sc.hasNext()) {
+                char c = sc.next().charAt(0);
+                System.out.println(removeChar(s, c, 0));
+            }
+        }
+        sc.close();
+    }
+}
