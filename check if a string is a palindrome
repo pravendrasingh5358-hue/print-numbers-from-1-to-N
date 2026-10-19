@@ -1,0 +1,26 @@
+ //check if a string is a palindrome
+import java.util.Scanner;
+public class Solution {
+    public static boolean isPalindrome(String str, int left, int right) {
+        if (left >= right) {
+            return true;
+        }
+        if (str.charAt(left) != str.charAt(right)) {
+            return false;
+        }
+        return isPalindrome(str, left + 1, right - 1);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        if (sc.hasNextLine()) {
+            String s = sc.nextLine();
+            if (isPalindrome(s, 0, s.length() - 1)) {
+                System.out.println("Palindrome");
+            } else {
+                System.out.println("Not Palindrome");
+            }
+        }
+        sc.close();
+    }
+}
